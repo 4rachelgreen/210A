@@ -26,6 +26,16 @@ ny = length(y);
 dy = y(2:ny)-x(1:ny-1);
 v = dy./dt;
 
+%calculate and plot acceleration
+%x-acceleration
+d2x = dx(2:nx-1)-dx(1:nx-2)
+ta = t(2:nx-1)
+xa = d2x./ta
+
+%y-acceleration
+d2y = dy(2:ny-1)-dy(1:ny-2)
+ya = d2y./ta
+
 %plot x-position and velocity
 figure(2)
 subplot(3,1,1)
@@ -56,12 +66,4 @@ plot(ta,ya,'o')
 title('v-acceleration')
 xlabel('time')
 
-%calculate and plot acceleration
-%x-acceleration
-d2x = dx(2:nx-1)-dx(1:nx-2)
-ta = t(2:nx-1)
-xa = d2x./ta
 
-%y-acceleration
-d2y = dy(2:nx-1)-dy(1:nx-2)
-ya = d2y./ta
